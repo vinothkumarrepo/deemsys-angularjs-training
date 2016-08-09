@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Angular Practice</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="icon" href="">
+
+<script src="angular/angular.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/practice.js"></script>
+<script src="js/expressions.js"></script>
+<script src="js/app.js"></script>
+
+<style>
+hr {
+border-top: 3px double grey;
+}
+
+</style>
+
+</head>
+
+<body ng-app="myApp">
+<div class="container">
+
+<div style="margin-top: 50px; margin-bottom: 50px">
+<h3>ng-app "practice"</h3>
+</div>
+
+<div ng-controller="greet">
+<u>greet controller</u><br/>
+Angular scope.greeting: <strong>{{greeting}}</strong>
+</div>
+<hr/>
+
+<div ng-controller="separatedFunction">
+<u>separatedFunction controller</u><br/>
+{{name}}
+</div>
+<hr/>
+
+<div ng-controller="calc">
+<u>calc controller</u><br/>
+Angular function: calc.sum(5,6): <strong>{{sum(5,6)}}</strong>
+<br/>
+Angular function: calc.dif(6,5): <strong>{{dif(6,5)}}</strong>
+</div>
+<hr />
+
+<div ng-controller="calc2">
+<u>calc2 controller</u><br/>
+<div class="row">
+<div class="col-md-3">Enter the first number: </div>
+<div class="col-md-2" id="num1_calc2"><input type="number" ng-model="num1"></div>
+</div>
+<div class="row">
+<div class="col-md-3">Enter the second number: </div>
+<div class="col-md-2"><input type="number" ng-model="num2"></div>
+</div>
+<div class="row">
+<div class="col-md-3">
+Sum of {{num1}} and {{num2}}
+</div>
+<div class="col-md-2">
+{{add(num1, num2)}}
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+Quotient of {{num1}}/{{num2}}:
+</div>
+<div class="col-md-2">
+{{div(num1, num2)}}
+</div>
+</div>
+</div>
+<hr />
+
+
+<div ng-controller="service1" id="serviceTest">
+<u>service1 controller</u><br/>
+<input ng-init="word='default'" ng-model="word">
+<button ng-click="controllerFunc(word)">Call the function</button>
+</div>
+<hr />
+
+<div ng-controller="logTest">
+<u>logTest controller</u><br/>
+<input ng-init="message='default'" ng-model="message">
+<button ng-click="notice(message)">Call the function</button>
+</div>
+<hr />
+
+
+<div ng-controller="express">
+<u>expression controller</u><br/>
+<input ng-model="vals"><button ng-click="addVals(vals)">Click</button>
+<div>{{values}}<ul><li ng-repeat="v in values track by $index">{{$parent.$eval(v)}}</li></ul></div>
+<div><button ng-click="clickTest($event)">Click</button>
+{{eve_detail | json}}
+</div>
+</div>
+<hr />
+
+
+<div ng-controller="interpolEg">
+<u>interpolEg controller</u><br/>
+<img src="{{fname}}.svg" style="width: 200px; height: 300px">
+<input ng-model="fname" ng-model-options="{ updateOn: 'blur' }">
+<span> *cube/circle (click outside after changing)</span>
+<br/>
+<a ng-href="{{fname}}.svg" target="_blank">Permanent link of the image</a>
+</div>
+<hr />
+
+</div>
+</body>
+</html>

@@ -119,10 +119,11 @@ Quotient of {{num1}}/{{num2}}:
 
 <div ng-controller="formEg">
   <form novalidate class="simple-form">
-    Name: <input type="text" ng-model="user.name" /><br />
+    Name: <input type="text" ng-model="user.name.first" /><br />
     E-mail: <input type="email" ng-model="user.email" /><br />
     Gender: <input type="radio" ng-model="user.gender" value="male" />male
     <input type="radio" ng-model="user.gender" value="female" />female<br />
+    Age: <input type="number" ng-model="user.age" /><br/>
     <input type="button" ng-click="reset()" value="Reset" />
     <input type="submit" ng-click="update(user)" value="Save" />
   </form>

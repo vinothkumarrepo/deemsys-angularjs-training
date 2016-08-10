@@ -20,7 +20,6 @@
 hr {
 border-top: 3px double grey;
 }
-
 </style>
 
 </head>
@@ -46,7 +45,7 @@ Angular scope.greeting: <strong>{{greeting}}</strong>
 
 <div ng-controller="calc">
 <u>calc controller</u><br/>
-Angular function: calc.sum(3,3): <strong>{{sum(3,3)}}</strong>
+Angular function: calc.sum(5,6): <strong>{{sum(5,6)}}</strong>
 <br/>
 Angular function: calc.dif(6,5): <strong>{{dif(6,5)}}</strong>
 </div>
@@ -115,6 +114,20 @@ Quotient of {{num1}}/{{num2}}:
 <span> *cube/circle (click outside after changing)</span>
 <br/>
 <a ng-href="{{fname}}.svg" target="_blank">Permanent link of the image</a>
+</div>
+<hr />
+
+<div ng-controller="formEg">
+  <form novalidate class="simple-form">
+    Name: <input type="text" ng-model="user.name" /><br />
+    E-mail: <input type="email" ng-model="user.email" /><br />
+    Gender: <input type="radio" ng-model="user.gender" value="male" />male
+    <input type="radio" ng-model="user.gender" value="female" />female<br />
+    <input type="button" ng-click="reset()" value="Reset" />
+    <input type="submit" ng-click="update(user)" value="Save" />
+  </form>
+  <pre>user = {{user | json}}</pre>
+  <pre>master = {{master | json}}</pre>
 </div>
 <hr />
 
